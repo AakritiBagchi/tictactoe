@@ -1,10 +1,32 @@
+let currentPlayer = "x";
+let totalNumberOfTurns = 0;
+let gameEnd = Boolean(0);
 
+function performLogic(buttonId, titleId) {
+    
+    $(buttonId).remove();
+    totalNumberOfTurns = totalNumberOfTurns + 1;
+     $(titleId).text(currentPlayer);
+    otherPlayer();
+}
 
+function otherPlayer(){
+    if (currentPlayer === "x") {
+        currentPlayer = "o";
+    }
+    else {
+        currentPlayer = "x";
+    }
+}
 
-
-
-
-
+function gameCounter() {
+    
+    if (totalNumberOfTurns === 9) {
+        $("h1").text("It's a draw!");
+}
+    
+    
+}
 $("#button1").click(function() {
     performLogic("#button1","#tile1");
 });
